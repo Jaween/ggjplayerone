@@ -20,12 +20,12 @@ public class PlayerScript : MonoBehaviour {
 
         Vector3 newPosition = transform.position;
         newPosition += (transform.right * horizontalAxis + 
-            transform.forward * verticalAxis) * speed * Time.deltaTime;
+            transform.forward * verticalAxis) * speed * Time.fixedDeltaTime;
         rigidbody.MovePosition(newPosition);
 
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
-        transform.Rotate(new Vector3(0.0f, mouseX, 0.0f));
+        transform.Rotate(new Vector3(0.0f, mouseX * mouseSpeed, 0.0f));
         
     }
 }
