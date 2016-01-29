@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
     public TriggerController[] triggers;
     public GameObject sun;
-
-	void Update () {
-        CheckForSunUp();
-	}
+  
+    void Update()
+    { 
+            CheckForSunUp();
+    }
 
     void CheckForSunUp()
     {
@@ -27,5 +29,7 @@ public class GameController : MonoBehaviour {
         Vector3 from = sun.transform.position;
         Vector3 to = sun.transform.position + Vector3.up * 10;
         sun.transform.position = Vector3.Lerp(from, to, Time.deltaTime);
+        sun.transform.LookAt(Vector3.zero);
+        
     }
 }
