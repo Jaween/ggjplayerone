@@ -1,0 +1,16 @@
+wifi password: (for Guest)
+99270-72545
+
+unity licence:
+E3-SSF2-A6QB-V2A8-2RPG-2U2R
+
+github repo:
+https://github.com/GGJPlayerOne/ggjplayerone
+
+local directory:
+C:\Users\student\Documents\ggjplayerone\ggjplayerone
+
+for bash:
+cd /c/Users/student/Documents/ggjplayerone/ggjplayerone
+
+
