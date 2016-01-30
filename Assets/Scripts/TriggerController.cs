@@ -6,16 +6,24 @@ public class TriggerController : MonoBehaviour
     public PlayerScript playerScript;
     public GameController gameController;
     public ParticleSystem[] litFlame;
-    public Light light;
+    public Light glow;
     public float flameExtinguishDelay;
 
-    private MeshRenderer meshRenderer;
     private bool isTriggered = false;
+    private bool isStarted = false;
 
     void Start () {
-        meshRenderer = GetComponent<MeshRenderer>();
         StopParticleSystems();
 	}
+
+    void FixedUpdate()
+    {
+        if (!isStarted)
+        {
+            StopParticleSystems();
+            isStarted = true;
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -47,7 +55,7 @@ public class TriggerController : MonoBehaviour
         gameController.CheckForTreeLitUp();
         StartParticleSystems();
 
-        // NO NEED TO EXTINGUISH LAMP FLAMES
+        // NO NEED TO EXTINGUISH LAMP FLAMES AFTER DELAY
         // Extinguishes the flame after a delay
         yield return new WaitForSeconds(flameExtinguishDelay);
         /*isTriggered = false;
@@ -64,7 +72,7 @@ public class TriggerController : MonoBehaviour
             litFlame[i].time = 0;
             litFlame[i].Play();
         }
-        light.enabled = true;
+        glow.enabled = true;
     }
 
     private void StopParticleSystems()
@@ -73,6 +81,6 @@ public class TriggerController : MonoBehaviour
         {
             litFlame[i].Stop();
         }
-        light.enabled = false;
+        glow.enabled = false;
     }
 }

@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 7a344e7dd53548341a8d1234c341c02e
+timeCreated: 1454142678
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: entrance
+    100002: ground
+    100004: standing_stone
+    100006: standing_stone1
+    100008: standing_stone2
+    100010: standing_stone3
+    100012: standing_stone4
+    100014: standing_stone5
+    100016: standing_stone6
+    100018: standingStones
+    100020: //RootNode
+    100022: trunk
+    100024: wall1
+    100026: wall2
+    100028: wall3
+    100030: wall4
+    100032: wall5
+    100034: walls 1
+    400000: entrance
+    400002: ground
+    400004: standing_stone
+    400006: standing_stone1
+    400008: standing_stone2
+    400010: standing_stone3
+    400012: standing_stone4
+    400014: standing_stone5
+    400016: standing_stone6
+    400018: standingStones
+    400020: //RootNode
+    400022: trunk
+    400024: wall1
+    400026: wall2
+    400028: wall3
+    400030: wall4
+    400032: wall5
+    400034: walls 1
+    2300000: entrance
+    2300002: ground
+    2300004: standing_stone
+    2300006: standing_stone1
+    2300008: standing_stone2
+    2300010: standing_stone3
+    2300012: standing_stone4
+    2300014: standing_stone5
+    2300016: standing_stone6
+    2300018: trunk
+    2300020: wall1
+    2300022: wall2
+    2300024: wall3
+    2300026: wall4
+    2300028: wall5
+    3300000: entrance
+    3300002: ground
+    3300004: standing_stone
+    3300006: standing_stone1
+    3300008: standing_stone2
+    3300010: standing_stone3
+    3300012: standing_stone4
+    3300014: standing_stone5
+    3300016: standing_stone6
+    3300018: trunk
+    3300020: wall1
+    3300022: wall2
+    3300024: wall3
+    3300026: wall4
+    3300028: wall5
+    4300000: ground
+    4300002: wall5
+    4300004: wall4
+    4300006: wall3
+    4300008: trunk
+    4300010: entrance
+    4300012: wall2
+    4300014: wall1
+    4300016: standing_stone6
+    4300018: standing_stone5
+    4300020: standing_stone4
+    4300022: standing_stone3
+    4300024: standing_stone2
+    4300026: standing_stone1
+    4300028: standing_stone
+    6400000: entrance
+    6400002: ground
+    6400004: standing_stone
+    6400006: standing_stone1
+    6400008: standing_stone2
+    6400010: standing_stone3
+    6400012: standing_stone4
+    6400014: standing_stone5
+    6400016: standing_stone6
+    6400018: trunk
+    6400020: wall1
+    6400022: wall2
+    6400024: wall3
+    6400026: wall4
+    6400028: wall5
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
