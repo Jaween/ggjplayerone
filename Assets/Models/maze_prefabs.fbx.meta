@@ -1,41 +1,37 @@
 fileFormatVersion: 2
-guid: 122b4379a2f25ee4192e58ae553e2744
-timeCreated: 1454114224
+guid: 38906ed4ef92dab47aa87dca1cfb985f
+timeCreated: 1454123297
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: pCube1
-    100002: pCube2
-    100004: pCube3
-    100006: pCube4
-    100008: transform1
-    100010: transform2
-    100012: transform3
-    100014: transform4
-    100016: transform5
-    100018: transform6
-    100020: //RootNode
-    100022: tunnelwall_02:pCube1
-    100024: tunnelwall_02:pCube2
-    100026: tunnelwall_02:pCube3
-    400000: pCube1
-    400002: pCube2
-    400004: pCube3
-    400006: pCube4
-    400008: transform1
-    400010: transform2
-    400012: transform3
-    400014: transform4
-    400016: transform5
-    400018: transform6
-    400020: //RootNode
-    400022: tunnelwall_02:pCube1
-    400024: tunnelwall_02:pCube2
-    400026: tunnelwall_02:pCube3
-    2300000: pCube4
-    3300000: pCube4
-    4300000: pCube4
+    100000: intersection
+    100002: left_bend
+    100004: //RootNode
+    100006: right_bend
+    100008: straight
+    100010: t_junction
+    400000: intersection
+    400002: left_bend
+    400004: //RootNode
+    400006: right_bend
+    400008: straight
+    400010: t_junction
+    2300000: intersection
+    2300002: left_bend
+    2300004: right_bend
+    2300006: straight
+    2300008: t_junction
+    3300000: intersection
+    3300002: left_bend
+    3300004: right_bend
+    3300006: straight
+    3300008: t_junction
+    4300000: straight
+    4300002: left_bend
+    4300004: right_bend
+    4300006: t_junction
+    4300008: intersection
     9500000: //RootNode
   materials:
     importMaterials: 1

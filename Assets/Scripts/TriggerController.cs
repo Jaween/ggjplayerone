@@ -3,8 +3,6 @@ using System.Collections;
 
 public class TriggerController : MonoBehaviour
 {
-    public Material onMaterial;
-    public Material offMaterial;
     public PlayerScript playerScript;
     public GameController gameController;
     public ParticleSystem litFlame;
@@ -22,6 +20,7 @@ public class TriggerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("Player entered");
             if (playerScript.FlameLit)
             {
                 StartCoroutine(LightAndExtinguishFlame());
@@ -44,7 +43,6 @@ public class TriggerController : MonoBehaviour
     {
         // Lights the flame
         isTriggered = true;
-        meshRenderer.material = onMaterial;
         gameController.CheckForSunUp();
         litFlame.time = 0;
         litFlame.Play();
@@ -52,7 +50,6 @@ public class TriggerController : MonoBehaviour
         // Extinguishes the flame after a delay
         yield return new WaitForSeconds(flameExtinguishDelay);
         isTriggered = false;
-        meshRenderer.material = offMaterial;
         if (litFlame.isPlaying)
         {
             litFlame.Stop();

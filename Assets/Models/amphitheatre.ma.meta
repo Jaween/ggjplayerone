@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: 8cdd3324d878ed543baf2883985a3e50
+timeCreated: 1454123040
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: alterwith_plinth:curveMyosotisHeavy
+    100002: alterwith_plinth:curveMyosotisHeavy1
+    100004: alterwith_plinth:curveMyosotisHeavy10
+    100006: alterwith_plinth:curveMyosotisHeavy2
+    100008: alterwith_plinth:curveMyosotisHeavy3
+    100010: alterwith_plinth:curveMyosotisHeavy4
+    100012: alterwith_plinth:curveMyosotisHeavy5
+    100014: alterwith_plinth:curveMyosotisHeavy6
+    100016: alterwith_plinth:curveMyosotisHeavy7
+    100018: alterwith_plinth:curveMyosotisHeavy8
+    100020: alterwith_plinth:curveMyosotisHeavy9
+    100022: alterwith_plinth:myosotisHeavy10MeshGroup
+    100024: alterwith_plinth:myosotisHeavy11MeshGroup
+    100026: alterwith_plinth:myosotisHeavy1MeshGroup
+    100028: alterwith_plinth:myosotisHeavy2MeshGroup
+    100030: alterwith_plinth:myosotisHeavy3MeshGroup
+    100032: alterwith_plinth:myosotisHeavy4MeshGroup
+    100034: alterwith_plinth:myosotisHeavy5MeshGroup
+    100036: alterwith_plinth:myosotisHeavy6MeshGroup
+    100038: alterwith_plinth:myosotisHeavy7MeshGroup
+    100040: alterwith_plinth:myosotisHeavy8MeshGroup
+    100042: alterwith_plinth:myosotisHeavy9MeshGroup
+    100044: alterwith_plinth:strokeMyosotisHeavy1
+    100046: alterwith_plinth:strokeMyosotisHeavy10
+    100048: alterwith_plinth:strokeMyosotisHeavy11
+    100050: alterwith_plinth:strokeMyosotisHeavy2
+    100052: alterwith_plinth:strokeMyosotisHeavy3
+    100054: alterwith_plinth:strokeMyosotisHeavy4
+    100056: alterwith_plinth:strokeMyosotisHeavy5
+    100058: alterwith_plinth:strokeMyosotisHeavy6
+    100060: alterwith_plinth:strokeMyosotisHeavy7
+    100062: alterwith_plinth:strokeMyosotisHeavy8
+    100064: alterwith_plinth:strokeMyosotisHeavy9
+    100066: group2_pCube13
+    100068: polySurface1
+    100070: polySurface2
+    100072: //RootNode
+    400000: alterwith_plinth:curveMyosotisHeavy
+    400002: alterwith_plinth:curveMyosotisHeavy1
+    400004: alterwith_plinth:curveMyosotisHeavy10
+    400006: alterwith_plinth:curveMyosotisHeavy2
+    400008: alterwith_plinth:curveMyosotisHeavy3
+    400010: alterwith_plinth:curveMyosotisHeavy4
+    400012: alterwith_plinth:curveMyosotisHeavy5
+    400014: alterwith_plinth:curveMyosotisHeavy6
+    400016: alterwith_plinth:curveMyosotisHeavy7
+    400018: alterwith_plinth:curveMyosotisHeavy8
+    400020: alterwith_plinth:curveMyosotisHeavy9
+    400022: alterwith_plinth:myosotisHeavy10MeshGroup
+    400024: alterwith_plinth:myosotisHeavy11MeshGroup
+    400026: alterwith_plinth:myosotisHeavy1MeshGroup
+    400028: alterwith_plinth:myosotisHeavy2MeshGroup
+    400030: alterwith_plinth:myosotisHeavy3MeshGroup
+    400032: alterwith_plinth:myosotisHeavy4MeshGroup
+    400034: alterwith_plinth:myosotisHeavy5MeshGroup
+    400036: alterwith_plinth:myosotisHeavy6MeshGroup
+    400038: alterwith_plinth:myosotisHeavy7MeshGroup
+    400040: alterwith_plinth:myosotisHeavy8MeshGroup
+    400042: alterwith_plinth:myosotisHeavy9MeshGroup
+    400044: alterwith_plinth:strokeMyosotisHeavy1
+    400046: alterwith_plinth:strokeMyosotisHeavy10
+    400048: alterwith_plinth:strokeMyosotisHeavy11
+    400050: alterwith_plinth:strokeMyosotisHeavy2
+    400052: alterwith_plinth:strokeMyosotisHeavy3
+    400054: alterwith_plinth:strokeMyosotisHeavy4
+    400056: alterwith_plinth:strokeMyosotisHeavy5
+    400058: alterwith_plinth:strokeMyosotisHeavy6
+    400060: alterwith_plinth:strokeMyosotisHeavy7
+    400062: alterwith_plinth:strokeMyosotisHeavy8
+    400064: alterwith_plinth:strokeMyosotisHeavy9
+    400066: group2_pCube13
+    400068: polySurface1
+    400070: polySurface2
+    400072: //RootNode
+    2300000: polySurface2
+    3300000: polySurface2
+    4300000: polySurface2
+    6400000: polySurface2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

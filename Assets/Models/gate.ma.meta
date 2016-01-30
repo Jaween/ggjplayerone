@@ -1,67 +1,82 @@
 fileFormatVersion: 2
-guid: 02afbaade99d5d54696c9f2b1ee5f50b
-timeCreated: 1454130168
+guid: ace4a28501817834f91096b493d07b28
+timeCreated: 1454123297
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: candle
-    100002: candleHolder
-    100004: candleTop
-    100006: hand
-    100008: joint1
-    100010: joint10
-    100012: joint11
-    100014: joint12
-    100016: joint13
-    100018: joint14
-    100020: joint15
-    100022: joint16
-    100024: joint17
-    100026: joint18
-    100028: joint19
-    100030: joint2
-    100032: joint3
-    100034: joint4
-    100036: joint5
-    100038: joint6
-    100040: joint7
-    100042: joint8
-    100044: joint9
-    100046: //RootNode
-    400000: candle
-    400002: candleHolder
-    400004: candleTop
-    400006: hand
-    400008: joint1
-    400010: joint10
-    400012: joint11
-    400014: joint12
-    400016: joint13
-    400018: joint14
-    400020: joint15
-    400022: joint16
-    400024: joint17
-    400026: joint18
-    400028: joint19
-    400030: joint2
-    400032: joint3
-    400034: joint4
-    400036: joint5
-    400038: joint6
-    400040: joint7
-    400042: joint8
-    400044: joint9
-    400046: //RootNode
-    2300000: candleHolder
-    2300002: candleTop
-    3300000: candleHolder
-    3300002: candleTop
-    4300000: hand
-    4300002: candleHolder
-    4300004: candleTop
+    100000: //RootNode
+    100002: pCube1
+    100004: pCube2
+    100006: pCube3
+    100008: pCube4
+    100010: pCube5
+    100012: pCube6
+    100014: pCube7
+    100016: pCube8
+    100018: pCube9
+    100020: pCylinder1
+    100022: pCylinder2
+    100024: pCylinder3
+    100026: pCylinder4
+    100028: pCylinder5
+    100030: pCylinder6
+    100032: pCylinder7
+    100034: pCylinder8
+    100036: transform1
+    100038: transform10
+    100040: transform11
+    100042: transform12
+    100044: transform13
+    100046: transform14
+    100048: transform15
+    100050: transform16
+    100052: transform2
+    100054: transform3
+    100056: transform4
+    100058: transform5
+    100060: transform6
+    100062: transform7
+    100064: transform8
+    100066: transform9
+    400000: //RootNode
+    400002: pCube1
+    400004: pCube2
+    400006: pCube3
+    400008: pCube4
+    400010: pCube5
+    400012: pCube6
+    400014: pCube7
+    400016: pCube8
+    400018: pCube9
+    400020: pCylinder1
+    400022: pCylinder2
+    400024: pCylinder3
+    400026: pCylinder4
+    400028: pCylinder5
+    400030: pCylinder6
+    400032: pCylinder7
+    400034: pCylinder8
+    400036: transform1
+    400038: transform10
+    400040: transform11
+    400042: transform12
+    400044: transform13
+    400046: transform14
+    400048: transform15
+    400050: transform16
+    400052: transform2
+    400054: transform3
+    400056: transform4
+    400058: transform5
+    400060: transform6
+    400062: transform7
+    400064: transform8
+    400066: transform9
+    2300000: pCylinder8
+    3300000: pCylinder8
+    4300000: pCylinder8
     9500000: //RootNode
-    13700000: hand
   materials:
     importMaterials: 1
     materialName: 0
