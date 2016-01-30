@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 
     public void Start()
     {
-        float sunMoveDistance = 10;
+        float sunMoveDistance = 20;
         sunDestination = sun.transform.position;
         sunDestination += Vector3.up * sunMoveDistance;
     }
