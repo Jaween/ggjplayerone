@@ -63,6 +63,14 @@ public class PlayerScript : MonoBehaviour {
         Vector3 newPosition = transform.position;
         newPosition += (transform.right * horizontalAxis +
             transform.forward * verticalAxis) * speed * Time.fixedDeltaTime;
+
+        // Gravity
+        RaycastHit hit;
+        if (rigidbody.SweepTest(-transform.up, out hit, 2.0f))
+        {
+            newPosition += -transform.up * Physics.gravity.magnitude * Time.fixedDeltaTime;
+        }
+
         rigidbody.MovePosition(newPosition);
     }
 
