@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour {
     public Camera mainCamera;
     public ParticleSystem candleFlame;
     //public ParticleSystem flickeringFlame;
+    public GameObject arm;
 
     private Rigidbody rigidbody;
     private bool flameLit = true;
@@ -62,7 +63,7 @@ public class PlayerScript : MonoBehaviour {
 
     private void UpdateCamera(float mouseX, float mouseY)
     {
-        float maxUpDownAngle = 70;
+        float maxUpDownAngle = 40;
         Quaternion forwardAngle = Quaternion.LookRotation(transform.forward, transform.up);
         Quaternion deltaAngle = Quaternion.Euler(new Vector3(-mouseY * mouseSpeed, 0.0f, 0.0f));
         Quaternion newCameraRotation = mainCamera.transform.rotation * deltaAngle;
@@ -70,10 +71,18 @@ public class PlayerScript : MonoBehaviour {
         float angle = Quaternion.Angle(newCameraRotation, forwardAngle);
         if (angle <= maxUpDownAngle)
         {
+            Quaternion armRotation = Quaternion.Euler(new Vector3(mouseY * mouseSpeed, 0.0f, 0.0f));
             mainCamera.transform.rotation = newCameraRotation;
+            ArmRotation(armRotation, mouseY);
         }
 
         // Turning
         transform.Rotate(new Vector3(0.0f, mouseX * mouseSpeed, 0.0f));
+    }
+
+    private void ArmRotation(Quaternion rotation, float mouseY)
+    {
+        arm.transform.position = arm.transform.position + transform.up * mouseY * 0.025f;
+        arm.transform.rotation *= rotation;
     }
 }
