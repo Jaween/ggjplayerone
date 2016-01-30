@@ -6,12 +6,17 @@ public class PlayerScript : MonoBehaviour {
     public float speed;
     public float mouseSpeed;
     public Camera mainCamera;
+    public ParticleSystem candleFlame;
+    public ParticleSystem flickeringFlame;
 
     private Rigidbody rigidbody;
+    private bool flameLit = true;
     
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Confined;
+
+        flickeringFlame.Stop();
 	}
 
     void FixedUpdate()
@@ -23,6 +28,28 @@ public class PlayerScript : MonoBehaviour {
 
         MovePlayer(horizontalAxis, verticalAxis);
         UpdateCamera(mouseX, mouseY);
+    }
+
+    public bool FlameLit
+    {
+        get
+        {
+            return flameLit;
+        }
+        set
+        {
+            flameLit = value;
+
+            if (flameLit)
+            {
+                candleFlame.time = 0;
+                candleFlame.Play();
+            }
+            else
+            {
+                candleFlame.Pause();
+            }
+        }
     }
 
     private void MovePlayer(float horizontalAxis, float verticalAxis)

@@ -5,6 +5,7 @@ public class TriggerController : MonoBehaviour
 {
     public Material onMaterial;
     public Material offMaterial;
+    public PlayerScript playerScript;
     public GameController gameController;
     public ParticleSystem litFlame;
     public float flameExtinguishDelay;
@@ -21,7 +22,16 @@ public class TriggerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            StartCoroutine(LightAndExtinguishFlame());
+            if (playerScript.FlameLit)
+            {
+                StartCoroutine(LightAndExtinguishFlame());
+            }
+
+            // Relights the player's candle
+            if (isTriggered)
+            {
+                playerScript.FlameLit = isTriggered;
+            }
         }
     }
 
@@ -39,7 +49,7 @@ public class TriggerController : MonoBehaviour
         litFlame.time = 0;
         litFlame.Play();
 
-        // Extinguishes the flame after the delay
+        // Extinguishes the flame after a delay
         yield return new WaitForSeconds(flameExtinguishDelay);
         isTriggered = false;
         meshRenderer.material = offMaterial;
