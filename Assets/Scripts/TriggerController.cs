@@ -44,16 +44,17 @@ public class TriggerController : MonoBehaviour
     {
         // Lights the flame
         isTriggered = true;
-        gameController.CheckForSunUp();
+        gameController.CheckForTreeLitUp();
         StartParticleSystems();
 
+        // NO NEED TO EXTINGUISH LAMP FLAMES
         // Extinguishes the flame after a delay
         yield return new WaitForSeconds(flameExtinguishDelay);
-        isTriggered = false;
-        //if (litFlame[0])
+        /*isTriggered = false;
+        if (litFlame[0])
         {
             StopParticleSystems();
-        }
+        }*/
     }
 
     private void StartParticleSystems()

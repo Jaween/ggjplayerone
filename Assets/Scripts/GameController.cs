@@ -3,11 +3,11 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-    public TriggerController[] triggers;
+    public TriggerController[] christmasTreeTriggers;
     public GameObject sun;
 
     private Vector3 sunDestination;
-    private bool sunVisible = false;
+    private bool treeLitUp = false;
 
     public void Start()
     {
@@ -18,22 +18,23 @@ public class GameController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (sunVisible)
+        if (treeLitUp)
         {
             ShowSun();
         }
     }
 
-    public void CheckForSunUp()
+    public void CheckForTreeLitUp()
     {
-        for (var i = 0; i < triggers.Length; i++)
+        for (var i = 0; i < christmasTreeTriggers.Length; i++)
         {
-            if (!triggers[i].IsTriggered)
+            if (!christmasTreeTriggers[i].IsTriggered)
             {
                 return;
             }
         }
-        sunVisible = true;
+        treeLitUp = true;
+        Debug.Log("Christmas Tree Lit Up!");
     }
 
     private void ShowSun()
