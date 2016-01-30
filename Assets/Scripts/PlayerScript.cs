@@ -7,7 +7,7 @@ public class PlayerScript : MonoBehaviour {
     public float mouseSpeed;
     public Camera mainCamera;
     public ParticleSystem candleFlame;
-    public ParticleSystem flickeringFlame;
+    //public ParticleSystem flickeringFlame;
 
     private Rigidbody rigidbody;
     private bool flameLit = true;
@@ -16,7 +16,7 @@ public class PlayerScript : MonoBehaviour {
         rigidbody = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Confined;
 
-        flickeringFlame.Stop();
+        //flickeringFlame.Stop();
 	}
 
     void FixedUpdate()

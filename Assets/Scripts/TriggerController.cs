@@ -5,7 +5,8 @@ public class TriggerController : MonoBehaviour
 {
     public PlayerScript playerScript;
     public GameController gameController;
-    public ParticleSystem litFlame;
+    public ParticleSystem[] litFlame;
+    public Light light;
     public float flameExtinguishDelay;
 
     private MeshRenderer meshRenderer;
@@ -13,7 +14,7 @@ public class TriggerController : MonoBehaviour
 
     void Start () {
         meshRenderer = GetComponent<MeshRenderer>();
-        litFlame.Stop();
+        StopParticleSystems();
 	}
 
     void OnTriggerEnter(Collider other)
@@ -44,15 +45,33 @@ public class TriggerController : MonoBehaviour
         // Lights the flame
         isTriggered = true;
         gameController.CheckForSunUp();
-        litFlame.time = 0;
-        litFlame.Play();
+        StartParticleSystems();
 
         // Extinguishes the flame after a delay
         yield return new WaitForSeconds(flameExtinguishDelay);
         isTriggered = false;
-        if (litFlame.isPlaying)
+        //if (litFlame[0])
         {
-            litFlame.Stop();
+            StopParticleSystems();
         }
+    }
+
+    private void StartParticleSystems()
+    {
+        for (var i = 0; i < litFlame.Length; i++)
+        {
+            litFlame[i].time = 0;
+            litFlame[i].Play();
+        }
+        light.enabled = true;
+    }
+
+    private void StopParticleSystems()
+    {
+        for (var i = 0; i < litFlame.Length; i++)
+        {
+            litFlame[i].Stop();
+        }
+        light.enabled = false;
     }
 }
