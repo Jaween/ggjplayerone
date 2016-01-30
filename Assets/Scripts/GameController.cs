@@ -3,33 +3,44 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-
     public TriggerController[] triggers;
     public GameObject sun;
-  
-    void Update()
-    { 
-            CheckForSunUp();
+
+    private Vector3 sunDestination;
+    private bool sunVisible = false;
+
+    public void Start()
+    {
+        float sunMoveDistance = 10;
+        sunDestination = sun.transform.position;
+        sunDestination += Vector3.up * sunMoveDistance;
     }
 
-    void CheckForSunUp()
+    public void FixedUpdate()
+    {
+        if (sunVisible)
+        {
+            ShowSun();
+        }
+    }
+
+    public void CheckForSunUp()
     {
         for (var i = 0; i < triggers.Length; i++)
         {
-            if (!triggers[i].isTriggered)
+            if (!triggers[i].IsTriggered)
             {
                 return;
             }
         }
-        ShowSun();
+        sunVisible = true;
     }
 
-    void ShowSun()
+    private void ShowSun()
     {
         Vector3 from = sun.transform.position;
-        Vector3 to = sun.transform.position + Vector3.up * 10;
+        Vector3 to = sunDestination;
         sun.transform.position = Vector3.Lerp(from, to, Time.deltaTime);
         sun.transform.LookAt(Vector3.zero);
-        
     }
 }

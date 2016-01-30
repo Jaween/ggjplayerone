@@ -3,19 +3,14 @@ using System.Collections;
 
 public class TriggerController : MonoBehaviour {
 
-    public bool isTriggered = false;
     public Material onMaterial;
+    public GameController gameController;
 
     private MeshRenderer meshRenderer;
+    private bool isTriggered = false;
 
-	// Use this for initialization
-	void Start () {
+    void Start () {
         meshRenderer = GetComponent<MeshRenderer>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	    
 	}
 
     void OnTriggerEnter(Collider other)
@@ -24,6 +19,12 @@ public class TriggerController : MonoBehaviour {
         {
             isTriggered = true;
             meshRenderer.material = onMaterial;
+            gameController.CheckForSunUp();
         }
+    }
+
+    public bool IsTriggered
+    {
+        get { return isTriggered; }
     }
 }
