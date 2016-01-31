@@ -12,10 +12,17 @@ public class GameController : MonoBehaviour
     public StatueController statueController;
     public Camera mainCamera;
     public Camera movingCamera;
+    public GameObject movingCameraSkyNode;
+    
 
     private Kathy_BeginningSounds kathyBegginingSounds;
     private Vector3 sunDestination;
     private bool treeLitUp = false;
+    private bool movingCameraStarted = false;
+    private bool movingCameraMovingReachedSky = false;
+    private bool movingCameraReachedGround = false;
+    private Vector3 oldCameraPosition;
+    private Quaternion oldCameraRotation;
 
     // ADD NEW STATES TO THE FOLLOWING LIST
     private enum State
@@ -80,16 +87,69 @@ public class GameController : MonoBehaviour
                 // Disable barrier blocking amphitheatre
                 playerScript.AllowedToMove = false;
                 playerScript.ShowPlayer = false;
-                movingCamera.transform.position = mainCamera.transform.position;
-                movingCamera.transform.rotation = mainCamera.transform.rotation;
-                mainCamera.enabled = false;
-                movingCamera.enabled = true;
-                // Move camera
-                // when done
-                // when done playerScript.AllowedToMove = true;
-                movingCamera.enabled = false;
-                mainCamera.enabled = true;
-                // moveToNextState();
+                if (!movingCameraStarted)
+                {
+                    movingCameraStarted = true;
+                    mainCamera.enabled = false;
+                    movingCamera.enabled = true;
+                    movingCamera.transform.position = mainCamera.transform.position;
+                    movingCamera.transform.rotation = mainCamera.transform.rotation;
+                    oldCameraPosition = mainCamera.transform.position;
+                    oldCameraRotation = mainCamera.transform.rotation;
+                }
+
+                Vector3 from;
+                Vector3 to;
+                Quaternion fromRotation;
+                Quaternion toRotation;
+
+                if (!movingCameraMovingReachedSky)
+                {
+                    from = movingCamera.transform.position;
+                    to = movingCameraSkyNode.transform.position;
+                    fromRotation = movingCamera.transform.rotation;
+                    toRotation = Quaternion.LookRotation(from - to, transform.up);
+                }
+                else
+                {
+                    from = movingCamera.transform.position;
+                    to = oldCameraPosition;
+                    fromRotation = movingCamera.transform.rotation;
+                    toRotation = Quaternion.LookRotation(from - to, transform.up); 
+                }
+                movingCamera.transform.position = Vector3.Lerp(from, to, Time.fixedDeltaTime * 3);
+                movingCamera.transform.rotation = Quaternion.Slerp(fromRotation, toRotation, Time.fixedDeltaTime * 3);
+
+                if (!movingCameraMovingReachedSky)
+                {
+                    float distance = Vector3.Distance(movingCamera.transform.position, movingCameraSkyNode.transform.position);
+                    if (distance < 0.01f)
+                    {
+                        Debug.Log("Has reached sky");
+                        // Delay for a second
+                        movingCameraMovingReachedSky = true;
+                    }
+                }
+
+                if (movingCameraMovingReachedSky && !movingCameraReachedGround)
+                {
+                    float distance = Vector3.Distance(movingCamera.transform.position, oldCameraPosition);
+                    if (distance < 0.01f)
+                    {
+                        Debug.Log("Has reached ground");
+                        movingCameraReachedGround = true;
+                    }
+                }
+
+                if (movingCameraReachedGround) { 
+                    mainCamera.enabled = false;
+                    movingCamera.enabled = true;
+                    playerScript.AllowedToMove = true;
+                    movingCamera.enabled = false;
+                    mainCamera.enabled = true;
+                    playerScript.ShowPlayer = true;
+                    moveToNextState();
+                }
                 break;
             case State.TunnelPuzzle:
                 //
