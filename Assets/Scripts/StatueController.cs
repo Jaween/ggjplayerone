@@ -13,6 +13,7 @@ public class StatueController : MonoBehaviour
     private Vector3 endPoint;
     private bool headShown = false;
     private bool allShown = false;
+    public GameController gameController;
 
     // Use this for initialization
     void Start()
@@ -44,7 +45,7 @@ public class StatueController : MonoBehaviour
             }
          
         }
-        if (Input.GetKeyDown("space")) {
+        /*if (Input.GetKeyDown("space")) {
             if (showHead == false)
             {
                 showHead = true;
@@ -53,7 +54,7 @@ public class StatueController : MonoBehaviour
                 showAll = true;
                 startTime = Time.time;
             }
-        }
+        }*/
     }
     void MoveStatueToShowAll()
     {
@@ -66,5 +67,11 @@ public class StatueController : MonoBehaviour
                 allShown = true;
             }
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        startTime = Time.time;
+        gameController.moveToNextState();
     }
 }

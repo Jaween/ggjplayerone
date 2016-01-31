@@ -13,7 +13,10 @@ public class GameController : MonoBehaviour
     public Camera mainCamera;
     public Camera movingCamera;
     public GameObject movingCameraSkyNode;
-    
+    public GameObject invisibleBarrier;
+    public Light tempLight;
+    public TriggerController finalCandle;
+
 
     private Kathy_BeginningSounds kathyBegginingSounds;
     private Vector3 sunDestination;
@@ -23,6 +26,9 @@ public class GameController : MonoBehaviour
     private bool movingCameraReachedGround = false;
     private Vector3 oldCameraPosition;
     private Quaternion oldCameraRotation;
+    private float cameraAnimStartTime;
+    private bool cameraBeginFreeze = false;
+    private bool statueDialogPlayed = false;
 
     // ADD NEW STATES TO THE FOLLOWING LIST
     private enum State
@@ -32,7 +38,6 @@ public class GameController : MonoBehaviour
         TreeLitMoveCamera,
         TunnelPuzzle,
         StatueRising,
-        RitualDialog,
         Endgame
     }
 
@@ -40,6 +45,7 @@ public class GameController : MonoBehaviour
 
     private State currentState;
     private int currentStateIndex;
+    private bool enteredStatueTrigger = false;
 
     public void Start()
     {
@@ -52,6 +58,8 @@ public class GameController : MonoBehaviour
         float sunMoveDistance = 20;
         sunDestination = sun.transform.position;
         sunDestination += Vector3.up * sunMoveDistance;
+
+        movingCamera.enabled = false;
     }
 
     public void FixedUpdate()
@@ -112,31 +120,51 @@ public class GameController : MonoBehaviour
                 }
                 else
                 {
+
                     from = movingCamera.transform.position;
                     to = oldCameraPosition;
                     fromRotation = movingCamera.transform.rotation;
-                    toRotation = oldCameraRotation; 
+                    toRotation = oldCameraRotation;
+
                 }
-                movingCamera.transform.position = Vector3.Lerp(from, to, Time.fixedDeltaTime * 3);
-                movingCamera.transform.rotation = Quaternion.Slerp(fromRotation, toRotation, Time.fixedDeltaTime * 3);
+
+                if (Time.time > cameraAnimStartTime + 1 && cameraBeginFreeze)
+                {
+                    movingCamera.transform.position = Vector3.Lerp(from, to, Time.fixedDeltaTime * 3);
+                    movingCamera.transform.rotation = Quaternion.Slerp(fromRotation, toRotation, Time.fixedDeltaTime * 3);
+                } else if (!cameraBeginFreeze)
+                {
+                    movingCamera.transform.position = Vector3.Lerp(from, to, Time.fixedDeltaTime * 3);
+                    movingCamera.transform.rotation = Quaternion.Slerp(fromRotation, toRotation, Time.fixedDeltaTime * 3);
+                }
 
                 if (!movingCameraMovingReachedSky)
                 {
                     float distance = Vector3.Distance(movingCamera.transform.position, movingCameraSkyNode.transform.position);
+                    tempLight.intensity = Mathf.Lerp(tempLight.intensity, 12.0f, Time.fixedDeltaTime);
+                    if (distance < 4f)
+                    {
+                        invisibleBarrier.transform.position = Vector3.Lerp(invisibleBarrier.transform.position, invisibleBarrier.transform.position - Vector3.up * 5, Time.fixedDeltaTime * 2);
+                    }
+
+
                     if (distance < 0.01f)
                     {
-                        Debug.Log("Has reached sky");
-                        // Delay for a second
+                        if (!cameraBeginFreeze)
+                        {
+                            cameraAnimStartTime = Time.time;
+                            cameraBeginFreeze = true;
+                        }
                         movingCameraMovingReachedSky = true;
                     }
                 }
 
                 if (movingCameraMovingReachedSky && !movingCameraReachedGround)
                 {
+                    //tempLight.intensity = Mathf.Lerp(tempLight.intensity, 0f, Time.fixedDeltaTime);
                     float distance = Vector3.Distance(movingCamera.transform.position, oldCameraPosition);
                     if (distance < 0.01f)
                     {
-                        Debug.Log("Has reached ground");
                         movingCameraReachedGround = true;
                     }
                 }
@@ -152,20 +180,19 @@ public class GameController : MonoBehaviour
                 }
                 break;
             case State.TunnelPuzzle:
-                //
-                // when done
-                // moveToNextState();
+                invisibleBarrier.SetActive(false);
+                if (finalCandle.IsTriggered)
+                {
+                    if (!statueDialogPlayed)
+                    {
+                        // play statue dialog
+                        statueDialogPlayed = true;
+                        moveToNextState();
+                    }
+                }
                 break;
             case State.StatueRising:
                 statueController.showHead = true;
-                // When close to statue 
-                // {
-                //     moveToNextState
-                // }
-                break;
-            case State.RitualDialog:
-                // Play dialog
-                moveToNextState();
                 break;
             case State.Endgame:
                 playerScript.AllowedToMove = false;
@@ -188,6 +215,7 @@ public class GameController : MonoBehaviour
         {
             if (!christmasTreeTriggers[i].IsTriggered)
             {
+                Debug.Log("Christmas tree " + i + " not triggered");
                 return;
             }
         }
@@ -203,7 +231,7 @@ public class GameController : MonoBehaviour
         sun.transform.LookAt(Vector3.zero);
     }
 
-    private void moveToNextState()
+    public void moveToNextState()
     {
         if (currentStateIndex < states.Count)
         {
