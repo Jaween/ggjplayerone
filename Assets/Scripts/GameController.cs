@@ -52,6 +52,9 @@ public class GameController : MonoBehaviour
                     moveToNextState();
                 }
                 break;
+            case State.TreeLightingCamera:
+                // Move camera
+                break;
             default:
                 break;
         }
