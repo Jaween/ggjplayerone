@@ -14,6 +14,9 @@ public class StatueController : MonoBehaviour
     private bool headShown = false;
     private bool allShown = false;
     public GameController gameController;
+    public SunController sunController;
+    public ParticleSystem fireworks;
+    public GameObject gameObject;
 
     // Use this for initialization
     void Start()
@@ -21,6 +24,7 @@ public class StatueController : MonoBehaviour
         startPoint = transform.position;
         startTime = Time.time;
         endPoint = startPoint + Vector3.up * 5;
+        fireworks.Stop();
     }
 
     // Update is called once per frame
@@ -65,6 +69,9 @@ public class StatueController : MonoBehaviour
             if (transform.position == endPoint)
             {
                 allShown = true;
+                gameObject.SetActive(true);
+                sunController.Started = true;
+                fireworks.Play();
             }
         }
     }
@@ -72,6 +79,7 @@ public class StatueController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         startTime = Time.time;
+        gameController.startTime2 = Time.time;
         gameController.moveToNextState();
     }
 }

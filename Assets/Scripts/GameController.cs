@@ -7,7 +7,6 @@ using System.Linq;
 public class GameController : MonoBehaviour
 {
     public TriggerController[] christmasTreeTriggers;
-    public GameObject sun;
     public PlayerScript playerScript;
     public StatueController statueController;
     public Camera mainCamera;
@@ -16,7 +15,7 @@ public class GameController : MonoBehaviour
     public GameObject invisibleBarrier;
     public Light tempLight;
     public TriggerController finalCandle;
-
+    public GameObject node2;
 
     private Kathy_BeginningSounds kathyBegginingSounds;
     private Vector3 sunDestination;
@@ -46,6 +45,7 @@ public class GameController : MonoBehaviour
     private State currentState;
     private int currentStateIndex;
     private bool enteredStatueTrigger = false;
+    public float startTime2;
 
     public void Start()
     {
@@ -55,10 +55,6 @@ public class GameController : MonoBehaviour
         currentState = states.ElementAt(0);
         Debug.Log("State is now " + currentState.ToString());
 
-        float sunMoveDistance = 20;
-        sunDestination = sun.transform.position;
-        sunDestination += Vector3.up * sunMoveDistance;
-
         movingCamera.enabled = false;
     }
 
@@ -67,7 +63,7 @@ public class GameController : MonoBehaviour
         // Debug
         if (Input.GetButtonDown("Fire2"))
         {
-            moveToNextState();
+            //moveToNextState();
         }
         StateTransitions();
 
@@ -92,7 +88,6 @@ public class GameController : MonoBehaviour
                 }
                 break;
             case State.TreeLitMoveCamera:
-                // Disable barrier blocking amphitheatre
                 playerScript.AllowedToMove = false;
                 playerScript.ShowPlayer = false;
                 if (!movingCameraStarted)
@@ -192,16 +187,51 @@ public class GameController : MonoBehaviour
                 }
                 break;
             case State.StatueRising:
+                movingCameraStarted = false;
+                movingCameraReachedGround = false;
+                cameraBeginFreeze = false;
                 statueController.showHead = true;
                 break;
             case State.Endgame:
-                playerScript.AllowedToMove = false;
                 statueController.showAll = true;
-                // move camera
-                // fireworks
-                // blow up sun
-                // when done
-                // show credits 
+                playerScript.AllowedToMove = false;
+                playerScript.ShowPlayer = false;
+
+                /*movingCamera.transform.position = mainCamera.transform.position;
+                movingCamera.transform.rotation = mainCamera.transform.rotation;
+                mainCamera.enabled = false;
+                movingCamera.enabled = true;
+
+                from = movingCamera.transform.position;
+                to = movingCameraSkyNode.transform.position;
+                fromRotation = movingCamera.transform.rotation;
+                toRotation = movingCameraSkyNode.transform.rotation;
+
+                movingCamera.transform.position = Vector3.Lerp(from, to, Time.fixedDeltaTime);
+                movingCamera.transform.rotation = Quaternion.Slerp(fromRotation, toRotation, Time.fixedDeltaTime);*/
+
+                if (!movingCameraStarted)
+                {
+                    movingCameraStarted = true;
+                    mainCamera.enabled = false;
+                    movingCamera.enabled = true;
+                    movingCamera.transform.position = mainCamera.transform.position;
+                    movingCamera.transform.rotation = mainCamera.transform.rotation;
+                }
+                    from = movingCamera.transform.position;
+                    to = node2.transform.position;
+                    fromRotation = movingCamera.transform.rotation;
+                    toRotation = node2.transform.rotation;
+
+                if (Time.time > startTime2 + 15)
+                {
+                    Debug.Log("Time has passed");
+                    Application.LoadLevel("EndCredits");
+                }
+                movingCamera.transform.position = Vector3.Lerp(from, to, Time.fixedDeltaTime * 3);
+                movingCamera.transform.rotation = Quaternion.Slerp(fromRotation, toRotation, Time.fixedDeltaTime * 3);
+               
+
                 break;
             default:
                 Debug.Log("Error: Invalid state");
@@ -225,10 +255,10 @@ public class GameController : MonoBehaviour
 
     private void ShowSun()
     {
-        Vector3 from = sun.transform.position;
+        /*Vector3 from = sun.transform.position;
         Vector3 to = sunDestination;
         sun.transform.position = Vector3.Lerp(from, to, Time.deltaTime);
-        sun.transform.LookAt(Vector3.zero);
+        sun.transform.LookAt(Vector3.zero);*/
     }
 
     public void moveToNextState()
