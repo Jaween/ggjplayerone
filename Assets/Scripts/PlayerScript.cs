@@ -9,7 +9,6 @@ public class PlayerScript : MonoBehaviour {
     public ParticleSystem candleFlame;
     //public ParticleSystem flickeringFlame;
     public GameObject arm;
-    public AudioSource introDialog;
 
     private Rigidbody rigidbody;
     private bool flameLit = true;
@@ -60,6 +59,14 @@ public class PlayerScript : MonoBehaviour {
             {
                 candleFlame.Stop();
             }
+        }
+    }
+
+    public bool ShowPlayer
+    {
+        set
+        {
+            arm.SetActive(value);
         }
     }
 
