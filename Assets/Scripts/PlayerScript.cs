@@ -9,9 +9,11 @@ public class PlayerScript : MonoBehaviour {
     public ParticleSystem candleFlame;
     //public ParticleSystem flickeringFlame;
     public GameObject arm;
+    public AudioSource introDialog;
 
     private Rigidbody rigidbody;
     private bool flameLit = true;
+    private bool allowedToMove = true;
     
 	void Start () {
         rigidbody = GetComponent<Rigidbody>();
@@ -29,13 +31,16 @@ public class PlayerScript : MonoBehaviour {
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        MovePlayer(horizontalAxis, verticalAxis);
-        UpdateCamera(mouseX, mouseY);
+        if (allowedToMove)
+        {
+            MovePlayer(horizontalAxis, verticalAxis);
+            UpdateCamera(mouseX, mouseY);
+        }
 
-        if (Input.GetButtonDown("Fire1"))
+        /*if (Input.GetButtonDown("Fire1"))
         {
             FlameLit = !FlameLit;
-        }
+        }*/
     }
 
     public bool FlameLit
@@ -56,6 +61,12 @@ public class PlayerScript : MonoBehaviour {
                 candleFlame.Stop();
             }
         }
+    }
+
+    public bool AllowedToMove
+    {
+        get { return allowedToMove; }
+        set { allowedToMove = value; }
     }
 
     private void MovePlayer(float horizontalAxis, float verticalAxis)
