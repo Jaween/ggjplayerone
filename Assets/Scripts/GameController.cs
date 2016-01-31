@@ -108,14 +108,14 @@ public class GameController : MonoBehaviour
                     from = movingCamera.transform.position;
                     to = movingCameraSkyNode.transform.position;
                     fromRotation = movingCamera.transform.rotation;
-                    toRotation = Quaternion.LookRotation(from - to, transform.up);
+                    toRotation = movingCameraSkyNode.transform.rotation;
                 }
                 else
                 {
                     from = movingCamera.transform.position;
                     to = oldCameraPosition;
                     fromRotation = movingCamera.transform.rotation;
-                    toRotation = Quaternion.LookRotation(from - to, transform.up); 
+                    toRotation = oldCameraRotation; 
                 }
                 movingCamera.transform.position = Vector3.Lerp(from, to, Time.fixedDeltaTime * 3);
                 movingCamera.transform.rotation = Quaternion.Slerp(fromRotation, toRotation, Time.fixedDeltaTime * 3);
