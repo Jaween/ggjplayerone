@@ -1,73 +1,22 @@
 fileFormatVersion: 2
-guid: 1dd3ae82d72c1b84198ba6fdb72315fb
-timeCreated: 1454144627
-licenseType: Pro
+guid: 2d8de054336333b45adfa6008813195e
+timeCreated: 1455539927
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: body_test:back
-    100004: body_test:bottom
-    100006: body_test:left
-    100008: body_test:pCube1
-    100010: body_test:pCube2
-    100012: eye1:pSphere1
-    100014: eye:pSphere1
-    100016: group
-    100018: group1
-    100020: group2
-    100022: group3
-    100024: imagePlane1
-    100026: left
-    100028: pasted__group1
-    100030: persp1
-    100032: persp2
-    100034: place3dTexture4
-    100036: place3dTexture5
-    100038: place3dTexture6
-    100040: pPlane6
-    100042: pPlane7
-    100044: pSphere1
-    100046: transform1
-    100048: transform2
-    100050: transform3
-    100052: transform4
-    100054: transform5
-    100056: transform6
+    100002: group1_pCube1
+    100004: pCylinder1
     400000: //RootNode
-    400002: body_test:back
-    400004: body_test:bottom
-    400006: body_test:left
-    400008: body_test:pCube1
-    400010: body_test:pCube2
-    400012: eye1:pSphere1
-    400014: eye:pSphere1
-    400016: group
-    400018: group1
-    400020: group2
-    400022: group3
-    400024: imagePlane1
-    400026: left
-    400028: pasted__group1
-    400030: persp1
-    400032: persp2
-    400034: place3dTexture4
-    400036: place3dTexture5
-    400038: place3dTexture6
-    400040: pPlane6
-    400042: pPlane7
-    400044: pSphere1
-    400046: transform1
-    400048: transform2
-    400050: transform3
-    400052: transform4
-    400054: transform5
-    400056: transform6
-    2300000: pPlane7
-    3300000: pPlane7
-    4300000: pPlane7
-    6400000: pPlane7
-    7400000: Take 001
+    400002: group1_pCube1
+    400004: pCylinder1
+    2300000: group1_pCube1
+    2300002: pCylinder1
+    3300000: group1_pCube1
+    3300002: pCylinder1
+    4300000: pCylinder1
+    4300002: group1_pCube1
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -93,9 +42,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

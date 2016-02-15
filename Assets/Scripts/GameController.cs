@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
         // Debug
         if (Input.GetButtonDown("Fire2"))
         {
-            //moveToNextState();
+            moveToNextState();
         }
         StateTransitions();
 
@@ -226,7 +226,7 @@ public class GameController : MonoBehaviour
                 if (Time.time > startTime2 + 15)
                 {
                     Debug.Log("Time has passed");
-                    Application.LoadLevel("EndCredits");
+                    Application.LoadLevel(2);
                 }
                 movingCamera.transform.position = Vector3.Lerp(from, to, Time.fixedDeltaTime * 3);
                 movingCamera.transform.rotation = Quaternion.Slerp(fromRotation, toRotation, Time.fixedDeltaTime * 3);
